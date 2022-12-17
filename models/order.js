@@ -2,7 +2,7 @@
 const {
   Model
 } = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
   class order extends Model {
     /**
@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     orderNo: {
       type: DataTypes.STRING,
       defaultValue: function () {
-        return uuidv4();
+        // return uuidv4();
+        return new Date() - 0;
       },
     },
     userId :DataTypes.INTEGER,
