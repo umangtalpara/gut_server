@@ -21,6 +21,12 @@ module.exports = (sequelize, DataTypes) => {
         return uuidv4();
       },
     },
+    userId :DataTypes.INTEGER,
+    userInfo :DataTypes.JSON,
+    status: {
+      type: DataTypes.ENUM("Pending", "Verified","Canceled","Placed"),
+      defaultValue: "Pending",
+    },
     service_platform: {
       type: DataTypes.ENUM("YouTube", "FaceBook","TicTok","Twitter","Instagram"),
       defaultValue: "YouTube",
