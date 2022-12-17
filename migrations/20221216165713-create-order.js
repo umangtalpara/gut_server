@@ -25,8 +25,8 @@ module.exports = {
       Count: {
         type: Sequelize.INTEGER
       },
-      userId :DataTypes.INTEGER,
-      userInfo :DataTypes.JSON,
+      userId :Sequelize.INTEGER,
+      userInfo :Sequelize.JSON,
       status: {
         type: Sequelize.ENUM("Pending", "Verified","Canceled","Placed"),
         defaultValue: "Pending",
