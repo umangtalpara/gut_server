@@ -9,15 +9,24 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
+      orderNo: {
         type: Sequelize.STRING
       },
-      lastName: {
-        type: Sequelize.STRING
+      service_platform: {
+        type: Sequelize.ENUM("YouTube", "FaceBook","TicTok","Twitter","Instagram"),
+        allowNull: false,
+        defaultValue: "YouTube",
       },
-      email: {
-        type: Sequelize.STRING
+      service_type: {
+        type: Sequelize.ENUM("Likes", "Share" ,"Subscribers","Comments", "Followers"),
+        allowNull: false,
+        defaultValue: "Likes",
       },
+      Count: {
+        type: Sequelize.INTEGER
+      },
+      Url : Sequelize.STRING,
+      response_form_third_party: Sequelize.JSON,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

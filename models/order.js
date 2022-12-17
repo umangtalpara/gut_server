@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { v4: uuidv4 } = require('uuid');
 module.exports = (sequelize, DataTypes) => {
   class order extends Model {
     /**
@@ -14,12 +15,28 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   order.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING
+    orderNo: {
+      type: DataTypes.STRING,
+      defaultValue: function () {
+        return uuidv4();
+      },
+    },
+    service_platform: {
+      type: DataTypes.ENUM("YouTube", "FaceBook","TicTok","Twitter","Instagram"),
+      defaultValue: "YouTube",
+    },
+    service_type: {
+      type: DataTypes.ENUM("Likes", "Share" ,"Subscribers","Comments", "Followers"),
+      defaultValue: "Likes",
+    } ,
+    Count : DataTypes.INTEGER ,
+    Url : DataTypes.STRING,
+    response_form_third_party: DataTypes.JSON
+
   }, {
     sequelize,
     modelName: 'order',
   });
+
   return order;
 };
