@@ -19,7 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     mobile: DataTypes.STRING,
     gmail: DataTypes.STRING,
     password: DataTypes.STRING,
-    type: DataTypes.enum
+    type: {
+      type: DataTypes.ENUM("User", "Admin"),
+      defaultValue: "User",
+    },
+    status: {
+      type: DataTypes.ENUM("Active", "InActive"),
+      defaultValue: "InActive",
+    }
   }, {
     sequelize,
     modelName: 'User',

@@ -15,8 +15,24 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING
       },
+      mobile: {
+        type: Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
+      },
+      password: {
+        type: Sequelize.STRING
+      },
+      type: {
+        type: Sequelize.ENUM("User", "Admin"),
+        allowNull: false,
+        defaultValue: "User",
+      },
+      status: {
+        type: Sequelize.ENUM("Active", "InActive"),
+        allowNull: false,
+        defaultValue: "InActive",
       },
       createdAt: {
         allowNull: false,
