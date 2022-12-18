@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 router.post('/find', async (req, res, next) => {
   console.log("hello...",orders)
-  await orders.findOne({ where: { orderNo: req.body.orderNo } }).then((data) => {
+  await orders.findOne({ where:req.body }).then((data) => {
     res.json(data);
   });
 });
