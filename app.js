@@ -10,6 +10,7 @@ var cors = require('cors');
 const bodyParser = require('body-parser');
 var indexRouter = require('./routes/index'); 
 var usersRouter = require('./routes/users');
+var orderRouter = require('./routes/order');
 var VnatkRouter = require('./routes/vnatk.js');
 
 var app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/orders', orderRouter);
 app.use('/vnatk', VnatkRouter);
 
 module.exports = app;
