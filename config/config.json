@@ -1,9 +1,9 @@
 {
     "development": {
-      "username": "root",
-      "password": "localhost",
-      "database": "gut",
-      "host": "localhost",
+      "username": "u285508250_ops",
+      "password": "6HmLPf=xW",
+      "database": "u285508250_ops",
+      "host": "sql502.main-hosting.eu",
       "dialect": "mysql"
     },
     "test": {
@@ -14,10 +14,10 @@
       "dialect": "mysql"
     },
     "production": {
-      "username": "sql6584940",
-      "password": "FnChU3ipcZ",
-      "database": "sql6584940",
-      "host": "sql6.freesqldatabase.com",
+      "username": "u285508250_ops",
+      "password": "6HmLPf=xW",
+      "database": "u285508250_ops",
+      "host": "sql502.main-hosting.eu",
       "dialect": "mysql"
     }
   }
