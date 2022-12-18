@@ -8,8 +8,14 @@ router.get('/', function(req, res, next) {
   res.send('order');
 });
 router.post('/find', async (req, res, next) => {
-  console.log("hello...",orders)
   await orders.findOne({ where:req.body }).then((data) => {
+    res.json(data);
+  });
+});
+router.post('/update', async (req, res, next) => {
+  await orders.update(
+    req.body
+  ,{ where:req.body.id }).then((data) => {
     res.json(data);
   });
 });
