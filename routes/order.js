@@ -7,8 +7,13 @@ var {Order} = require("../models");
 router.get('/', function(req, res, next) {
   res.send('order');
 });
+router.post('/create', async (req, res, next) => {
+  await Order.create(req.body).then((data) => {
+    res.json(data);
+  });
+});
 router.post('/find', async (req, res, next) => {
-  await Order.findOne({ where:req.body }).then((data) => {
+  await Order.findAll({ where:req.body }).then((data) => {
     res.json(data);
   });
 });
