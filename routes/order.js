@@ -22,7 +22,7 @@ router.post('/update', async (req, res, next) => {
   console.log("helloo",req.body)
   
   let dataObj = {
-    key: 'urc0JbK3FsaR0vfk9pjPiPb1vSMBNzL',
+    key: 'Yurc0JbK3FsaR0vfk9pjPiPb1vSMBNzL',
     action: 'add',
     service: req.body.service,
     link: req.body.url,
@@ -37,6 +37,7 @@ router.post('/update', async (req, res, next) => {
   let updateRecord = await request(rpcData);
   console.log("updateRecord",updateRecord);
   req.body.response_form_third_party = updateRecord
+  req.body.status = "Placed"
  
   //update after api hit
   await Order.update(
@@ -44,7 +45,11 @@ router.post('/update', async (req, res, next) => {
   ,{ where:{
     id:req.body.id
   } }).then((data) => {
-    res.json(data);
+    let datares = {
+      data,
+      updateRecord
+    }
+    res.json(datares);
   });
 
 });
